@@ -96,4 +96,12 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
+
+  getTasks() {
+    return service
+      .get('/https://www.boredapi.com/api/activity')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
 }

@@ -1,89 +1,83 @@
 import React, { Component } from 'react'
 import api from '../../api'
+import axios from 'axios';
+axios.defaults.withCredentials= true;
 
 export default class AddTask extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      
-    }
-  }
-    render() {
-        return (
-            <div>
-                Add Task Form Calling the Bored API
-            </div>
-        )
-    }
-}
-
-
-
-import React, { Component } from 'react';
-import api from '../../api';
-
-
-export default class AddCountry extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: "",
-      capitals: "",
-      area: "",
-      description: "",
-      message: null
+      activity:"",
+      type:"",
+      participants:""
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
-
   handleInputChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
-
   handleClick(e) {
     e.preventDefault()
-    console.log(this.state.name, this.state.description)
+    console.log(this.state.activity, this.state.participants)
     let data = {
-      name: this.state.name,
-      capitals: this.state.capitals,
-      area: this.state.area,
-      description: this.state.description,
+      activity: this.state.activity,
+      type: this.state.type,
+      participants: this.state.participants
     }
-    api.addCountry(data)
-      .then(result => {
-        console.log('SUCCESS!')
+    axios.post('http://localhost:5000/api/saveTask', data).then(dataFromServer=>{
+      console.log(dataFromServer)
+      //api.addTask(dataFromServer)
+      //.then(result => {
+        console.log('SUCCESS!', dataFromServer)
         this.setState({
-          name: "",
-          capitals: "",
-          area: "",
-          description: "",
-          message: `Your country '${this.state.name}' has been created`
+          activity: dataFromServer.data.task,
+          type: "",
+          participants: "",
+          message: `Your task '${this.state.activity}' has been created`
         })
-        setTimeout(() => {
-          this.setState({
-            message: null
-          })
-        }, 2000)
-      })
-      .catch(err => this.setState({ message: err.toString() }))
-  }
-  render() {
-    return (
-      <div className="AddCountry">
-        <h2>Add country</h2>
-        <form>
-          Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br />
-          Capitals: <input type="text" value={this.state.capitals} name="capitals" onChange={this.handleInputChange} /> <br />
-          Area: <input type="number" value={this.state.area} name="area" onChange={this.handleInputChange} /> <br />
-          Description: <textarea value={this.state.description} name="description" cols="30" rows="10" onChange={this.handleInputChange} ></textarea> <br />
-          <button onClick={(e) => this.handleClick(e)}>Create country</button>
-        </form>
-        {this.state.message && <div className="info">
+    
+    }).catch(err => this.setState({ message: err.toString() }))
+
+    }
+
+  
+    render() {
+        return (
+            <div className="addTask">
+              <h2>Add a task</h2>{this.state.activity}
+              <form>  
+              Activity:     <input type="text" 
+                                   value={this.state.activity}
+                                   name="activity"
+                                   onChange={this.handleInputChange} /> <br />
+              type:         <input type="text"
+                                   name="type"
+                                   onChange={this.handleInputChange} /> <br />
+              {/* type:         <input>
+                              <select>
+                                <option value={this.state.type[0]}>social</option>
+                                <option value={this.state.type[1]}>music</option>
+                                <option value={this.state.type[2]}>education</option>
+                                <option value={this.state.type[3]}>busywork</option>
+                                <option value={this.state.type[4]}>charity</option>
+                                <option value={this.state.type[5]}>relaxation</option>
+                                <option value={this.state.type[6]}>recreational</option>
+                                <option value={this.state.type[7]}>cooking</option>
+                                <option value={this.state.type[8]}>diy</option>
+                              </select>
+                            </input> */}
+              participants: <input type="number" 
+                                   value={this.state.participants} 
+                                   name="participants" 
+                                   onChange={this.handleInputChange} /> <br />
+          <button onClick={(e) => this.handleClick(e)}>Create Task</button>
+              </form>
+              {this.state.message && <div className="info">
           {this.state.message}
         </div>}
-      </div>
-    );
-  }
+            </div>
+        )
+    }
 }

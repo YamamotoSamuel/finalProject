@@ -8,7 +8,7 @@ export default class AddTask extends Component {
     super(props)
     this.state = {
       activity:"",
-      type:"",
+      type:[], ////////////////////////////////////////changed "" to []
       participants:""
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -20,6 +20,7 @@ export default class AddTask extends Component {
   }
   handleClick(e) {
     e.preventDefault()
+
     console.log(this.state.activity, this.state.participants)
     let data = {
       activity: this.state.activity,
@@ -33,41 +34,29 @@ export default class AddTask extends Component {
         console.log('SUCCESS!', dataFromServer)
         this.setState({
           activity: dataFromServer.data.task,
-          type: "",
+          type: [], ////////////////////////////////////////changed "" to []
           participants: "",
-          message: `Your task '${this.state.activity}' has been created`
+          message: `Your task '${this.state.activity}' has been created`,
+          tasks:[]
         })
+        this.props.onShowUpdate();
     
     }).catch(err => this.setState({ message: err.toString() }))
 
     }
-
   
     render() {
         return (
             <div className="addTask">
-              <h2>Add a task</h2>{this.state.activity}
+              <h2>Add a Task to Community Activity List</h2>
               <form>  
               Activity:     <input type="text" 
                                    value={this.state.activity}
                                    name="activity"
                                    onChange={this.handleInputChange} /> <br />
-              type:         <input type="text"
+              type:         <input type="text" ///////////////////////////////////<---------- UNSURE
                                    name="type"
                                    onChange={this.handleInputChange} /> <br />
-              {/* type:         <input>
-                              <select>
-                                <option value={this.state.type[0]}>social</option>
-                                <option value={this.state.type[1]}>music</option>
-                                <option value={this.state.type[2]}>education</option>
-                                <option value={this.state.type[3]}>busywork</option>
-                                <option value={this.state.type[4]}>charity</option>
-                                <option value={this.state.type[5]}>relaxation</option>
-                                <option value={this.state.type[6]}>recreational</option>
-                                <option value={this.state.type[7]}>cooking</option>
-                                <option value={this.state.type[8]}>diy</option>
-                              </select>
-                            </input> */}
               participants: <input type="number" 
                                    value={this.state.participants} 
                                    name="participants" 

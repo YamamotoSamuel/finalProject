@@ -44,7 +44,7 @@ export default class Home extends Component {
     return (
       <div className="Home">
         <div className="Add-Task">
-          <AddTask onShowUpdate={this.onShowUpdate} />
+          <AddTask onShowUpdate={this.onShowUpdate} addTaskToProfile={this.props.addTaskToProfile}/>
         </div>
         <div className="generate-task">
           <h1>Get a Random Activity!</h1>

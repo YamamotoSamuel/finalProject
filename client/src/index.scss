@@ -44,7 +44,7 @@ body {
   text-align: center;
 
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
     height: 80px;
   }
 
@@ -56,7 +56,7 @@ body {
     a {
       color: white;
       padding: 0 5px;
-      text-decoration: unset;
+      text-decoration: none;
     }
 
     a.active {
@@ -86,10 +86,37 @@ body {
 // --------------------
 // Style for Home component
 .Home {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  height: 475px;
+  
   p {
     font-size: 1.2em;
   }
+  a {
+    color: darkblue;
+    font-style: italic;
+    text-decoration: none;
+  }
+
+  .Add-Task{
+    width: 325px;
+    border: 5px solid lightskyblue;
+    border-radius: 28px;
+  }
+  .generate-task{
+    border: 5px solid lightskyblue;
+    border-radius: 28px;
+    width: 375px;
+  }
+  .community-tasks{
+    border: 5px solid lightskyblue;
+    border-radius: 28px;
+    width:350px;
 }
+}
+
 
 // --------------------
 // Style for Secret component
@@ -98,4 +125,108 @@ body {
     font-size: 1.2em;
     color: $primary;
   }
+}
+
+// ------------------------------------------------
+//CLOCK CSS
+
+.clock{
+$black: #1b1e23;
+$size: 200px;
+$white: #f4eed7;
+$feature : #4b9aaa;
+
+body {
+  height: 100%;
+}
+body {
+  background: $black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  color: white;
+}
+
+p {
+  color: $white;
+  font-size: 0.8em;
+  opacity: 0.75;
+}
+
+.NavClock{
+  height:50px;
+  width:50px;
+}
+
+.clock {
+  height: $size;
+  width: $size;
+  border-radius: #{$size / 2};
+  display: flex;
+  justify-content: center;
+  position: relative;
+  &__second,
+  &__minute,
+  &__hour, &__indicator {
+    position: absolute;
+    left: calc(50% - 1px);
+    width: 2px;
+    background: $white;
+    transform-origin: bottom center;
+    z-index: 2;
+    border-radius: 1px;
+  }
+  &__second {
+    height: #{($size / 2) - 10};
+    margin-top: 10px;
+    background: $feature;
+    animation: time 60s infinite steps(60);
+    z-index: 3;
+  }
+  &__minute {
+    height: #{($size / 2) - 20};
+    margin-top: 20px;
+    opacity: 0.75;
+    animation: time 3600s linear infinite;
+  }
+  &__hour {
+    height: #{($size / 2) - 40};
+    margin-top: 40px;
+    animation: time 43200s linear infinite;
+  }
+  &__indicator {
+    height: #{($size / 2) - 2};
+    border-top: 2px solid $feature;
+    background: none;
+  }
+  &__indicator:nth-of-type(5n) {
+    opacity: 1;
+    height: #{($size / 2) - 7};
+    border-top: 7px solid $white;
+  }
+  &__axis {
+    background: $feature;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 4;
+    top: #{$size / 2 - 3};
+    
+  }
+}
+
+@for $i from 1 through 60 {
+  section:nth-of-type(#{$i}) {
+    transform: rotateZ(calc(6deg * #{$i}));
+  }
+}
+
+@keyframes time {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
 }

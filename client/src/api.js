@@ -35,6 +35,8 @@ export default {
       .post('/signup', userInfo)
       .then(res => {
         // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
+        console.log('in here22 ',res.data)
+
         localStorage.setItem('user', JSON.stringify(res.data))
         return res.data
       })
@@ -48,6 +50,7 @@ export default {
         password,
       })
       .then(res => {
+        console.log('in here ',res.data)
         // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
         localStorage.setItem('user', JSON.stringify(res.data))
         return res.data

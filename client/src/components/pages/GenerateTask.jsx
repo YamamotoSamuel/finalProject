@@ -8,7 +8,6 @@ export default class GenerateTask extends Component {
   componentDidMount(){
     axios.get('https://www.boredapi.com/api/activity')
     .then(theTask => {
-      console.log(theTask,123412342134)
       this.setState ({
         task: theTask.data
       })

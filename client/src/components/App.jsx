@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import api from "../api";
 import Clock from './pages/Clock'
+import { throws } from "assert";
 
 export default class App extends Component {
   constructor(props) {
@@ -31,6 +32,12 @@ export default class App extends Component {
   addTaskToProfile = (task) => {
     console.log('heyyyyy',this.state, task)
   }
+
+
+
+
+
+
 
   render() {
     return (
@@ -67,7 +74,7 @@ export default class App extends Component {
           />
           <Route path="/about" component={About} />
           <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={(props) => <Login {...props} /> } />
           <Route
             path="/profile"
             component={() => <Profile {...this.state} {...this.props} />}

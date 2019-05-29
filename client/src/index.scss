@@ -104,12 +104,36 @@ body {
     width: 325px;
     border: 5px solid lightskyblue;
     border-radius: 28px;
+
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
   }
+  button{
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+}
   .generate-task{
     border: 5px solid lightskyblue;
     border-radius: 28px;
     width: 375px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+  button{
+    width:100px;
+    border-radius: 20px;
+  }
+  
   .community-tasks{
     border: 5px solid lightskyblue;
     border-radius: 28px;
@@ -117,7 +141,14 @@ body {
 }
 }
 
+  .Private-Tasks{
+    
+  }
 
+
+  li{
+    list-style-type: none;
+  }
 // --------------------
 // Style for Secret component
 .Secret {

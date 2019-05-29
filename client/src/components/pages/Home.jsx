@@ -58,7 +58,7 @@ export default class Home extends Component {
           <h2>{this.state.task.participants}</h2>
 
           <button className="give-task" onClick={this.getActivity}>
-            Generate
+            <b>Generate</b>
           </button>
         </div>
         <div className="community-tasks">

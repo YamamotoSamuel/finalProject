@@ -88,7 +88,7 @@ export default class AddTask extends Component {
                                    value={this.state.participants} 
                                    name="participants" 
                                    onChange={this.handleInputChange} /> <br />
-                <button onClick={(e) => this.handleClick(e)}>Add Community Task</button>
+                <button onClick={(e) => this.handleClick(e)}>Add Community Task</button><br/>
                 <button onClick={(e) => this.handleMyTask(e)}>Add Private Task</button>
 
               </form>

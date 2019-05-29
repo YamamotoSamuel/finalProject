@@ -1,14 +1,30 @@
 import React, { Component } from 'react'
 import ShowTasks from './ShowTasks'
 import axios from 'axios';
+import api from '../../api'
 
 export default class Profile extends Component {
 
   state = {
-    tasks: []
+    tasks: [],
+    user: this.props.user
+  };
+
+  deleteTask = (id, i) => {
+    console.log(id); //The id in the database
+    //Task.deleteById(id)
+    axios
+      .post("http://localhost:5000/api/task/deleteTaskPlease", { id: id })
+      .then(responseFromServer => {
+        console.log(responseFromServer);
+        let tasks = [...this.state.tasks];
+        tasks.splice(i, 1);
+        this.setState({ tasks });
+      });
   };
 
   componentDidMount() {
+    this.showUser()
     axios
       .get("http://localhost:5000/api/myTasks")
       .then(tasksFromServer => {
@@ -18,16 +34,44 @@ export default class Profile extends Component {
       .catch(err => console.log(err));
   }
 
-  showTasks = () => this.state.tasks.map(task=> <li>{task.activity}</li>)
-  
-  render() {
+  showUser = () => {
+    console.log(api.getLocalStorageUser())
 
+    this.setState({
+      user: api.getLocalStorageUser()
+    });
+  }
+
+  // showTasks = () => this.state.tasks.map(task=> <li>{task.activity}</li>)
+  
+
+  showTasks = () => {
+    return this.state.tasks.map((task, i) => {
+      return (
+        <li>
+          <h4>{task.activity}</h4>
+          {this.props.user? (
+            <button onClick={() => this.deleteTask(task._id, i)}>
+              Delete
+            </button>
+          ) : (
+            ""
+          )}
+        </li>
+      );
+    });
+  };
+
+
+
+  render() {
     return (
       <div>
         <div>
-        Profile page<br/>
-        {this.props.user.username}
-        {this.props.user.name}
+        <h1>{this.state.user.name}'s profile page</h1>
+        <h2>Username: {this.state.user.username}</h2>
+        </div>
+        <div className="Private-Tasks">
         {this.showTasks()}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import api from "../../api";
+ import api from "../../api";
 
 export default class ShowTasks extends Component {
   state = {
@@ -44,14 +44,14 @@ export default class ShowTasks extends Component {
     return this.state.tasks.map((eachTask, i) => {
       return (
         <li>
-          {eachTask.activity}
-          {this.props.user? (
+          <h4>{eachTask.activity}</h4>
+          {/* {this.props.user? (
             <button onClick={() => this.deleteTask(eachTask._id, i)}>
               Delete
             </button>
           ) : (
             ""
-          )}
+          )} */}
         </li>
       );
     });

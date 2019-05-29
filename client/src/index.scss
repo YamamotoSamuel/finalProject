@@ -1,6 +1,6 @@
 // --------------------
 // Definition of variables
-$primary: #32c3ff;
+$primary: rgb(163, 1, 1);
 
 
 // ----------------------------------------
@@ -85,11 +85,23 @@ body {
 
 // --------------------
 // Style for Home component
+
+
+
 .Home {
   display: flex;
   justify-content: space-around;
-  margin: 10px;
-  height: 475px;
+  margin: 0;
+  height: 70vh;
+  margin-top: 0;
+  // padding: 10%;
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 70px;
+  background: url(/images/clock-background.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  // background-color: red;
   
   p {
     font-size: 1.2em;
@@ -102,8 +114,12 @@ body {
 
   .Add-Task{
     width: 325px;
-    border: 5px solid lightskyblue;
+    border: 5px solid rgb(175, 1, 1);
     border-radius: 28px;
+    background-color: rgba(128, 128, 128, 0.9);
+    height: 500px;
+        // ------------------------------------------
+
 
   form{
     display: flex;
@@ -129,13 +145,16 @@ body {
       font-size: 20px;
     }
   .generate-task{
-    border: 5px solid lightskyblue;
+    border: 5px solid rgb(175, 1, 1);
     border-radius: 28px;
     width: 375px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color:rgba(128, 128, 128, 0.9);
+    height: 500px; 
+    // ------------------------------------------
   }
   button{
     width:100px;
@@ -146,13 +165,16 @@ body {
   }
   
   .community-tasks{
-    border: 5px solid lightskyblue;
+    border: 5px solid rgb(175, 1, 1);
     border-radius: 28px;
     width:350px;
+    background-color: rgba(128, 128, 128, 0.9);
+    height: 500px; 
 }
 }
 
   .Private-Tasks{
+    
     
   }
 

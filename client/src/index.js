@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import './stylezzz.css';
+
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App.jsx';
 // import registerServiceWorker from './registerServiceWorker';

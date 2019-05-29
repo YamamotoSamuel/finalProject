@@ -45,15 +45,18 @@ export default class App extends Component {
           <div className="NavClock">
           <Clock />
           </div>
-          <h1 className="App-title">FreeTime App</h1>
-          <NavLink to="/" exact>Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+          <div class="menu">
+                     
+          <NavLink to="/" exact> <h1 className="App-title">FreeTime App</h1>  </NavLink>
+          <NavLink to="/about"><h4>About</h4></NavLink>
+          {api.isLoggedIn() && <NavLink to="/profile"><h4>Profile</h4></NavLink>}
+          {!api.isLoggedIn() && <NavLink to="/signup"><h4>Signup</h4></NavLink>}
+          {!api.isLoggedIn() && <NavLink to="/login"><h4>Login</h4></NavLink>}
           {api.isLoggedIn() && (
-          <Link to="/" onClick={e => this.handleLogoutClick(e)}>Logout</Link>
+          <Link to="/" onClick={e => this.handleLogoutClick(e)}><h4>Logout</h4></Link>
           )}
+          </div>
+
           </div>
         </header>
         <Switch>

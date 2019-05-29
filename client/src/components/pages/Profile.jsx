@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ShowTasks from './ShowTasks'
 import axios from 'axios';
 import api from '../../api'
+import { baseURL } from '../../api'
 
 export default class Profile extends Component {
 
@@ -14,7 +15,7 @@ export default class Profile extends Component {
     console.log(id); //The id in the database
     //Task.deleteById(id)
     axios
-      .post("http://localhost:5000/api/task/deleteTaskPlease", { id: id })
+      .post(`${baseURL}/task/deleteTaskPlease`, { id: id })
       .then(responseFromServer => {
         console.log(responseFromServer);
         let tasks = [...this.state.tasks];
@@ -26,7 +27,7 @@ export default class Profile extends Component {
   componentDidMount() {
     this.showUser()
     axios
-      .get("http://localhost:5000/api/myTasks")
+      .get(`${baseURL}/myTasks`)
       .then(tasksFromServer => {
         console.log("tasksFromServer", tasksFromServer);
         this.setState({ tasks: tasksFromServer.data });

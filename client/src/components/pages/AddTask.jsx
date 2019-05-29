@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import api from '../../api'
+import {baseURL} from '../../api'
+
 import axios from 'axios';
 axios.defaults.withCredentials= true;
-
 export default class AddTask extends Component {
   constructor(props) {
     super(props)
@@ -27,7 +28,7 @@ export default class AddTask extends Component {
       type: this.state.type,
       participants: this.state.participants
     }
-    axios.post('http://localhost:5000/api/saveTask', data).then(dataFromServer=>{
+    axios.post(`${baseURL}/saveTask`, data).then(dataFromServer=>{
       console.log(dataFromServer)
       //api.addTask(dataFromServer)
       //.then(result => {
@@ -54,7 +55,7 @@ export default class AddTask extends Component {
         type: this.state.type,
         participants: this.state.participants
       }
-      axios.post('http://localhost:5000/api/saveMyTask', data).then(dataFromServer=>{
+      axios.post(`${baseURL}/saveMyTask`, data).then(dataFromServer=>{
         console.log(dataFromServer)
         //api.addTask(dataFromServer)
         //.then(result => {

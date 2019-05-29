@@ -36,9 +36,6 @@ export default class App extends Component {
 
 
 
-
-
-
   render() {
     return (
       <div className="App">
@@ -49,21 +46,14 @@ export default class App extends Component {
           <Clock />
           </div>
           <h1 className="App-title">FreeTime App</h1>
-          <NavLink to="/" exact>
-            Home
-          </NavLink>
+          <NavLink to="/" exact>Home</NavLink>
           <NavLink to="/about">About</NavLink>
-          {/* <NavLink to="/countries">Countries</NavLink>
-          <NavLink to="/add-country">Add country</NavLink> */}
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
           {api.isLoggedIn() && (
-            <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-              Logout
-            </Link>
+          <Link to="/" onClick={e => this.handleLogoutClick(e)}>Logout</Link>
           )}
-          {/* <NavLink to="/secret">Secret</NavLink> */}
           </div>
         </header>
         <Switch>
@@ -79,7 +69,6 @@ export default class App extends Component {
             path="/profile"
             component={() => <Profile {...this.state} {...this.props} />}
           />
-          {/* <Route path="/secret" component={Secret} /> */}
           <Route render={() => <h2>404</h2>} />
         </Switch>
       </div>

@@ -1,7 +1,9 @@
 import axios from 'axios'
+const baseURL =  process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api';
+export { baseURL }
 
 const service = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api',
+  baseURL: baseURL,
   withCredentials: true
 })
 

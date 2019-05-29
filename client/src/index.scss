@@ -160,6 +160,10 @@ body {
   li{
     list-style-type: none;
   }
+
+  a.active{
+    margin-top: 28px;
+  }
 // --------------------
 // Style for Secret component
 .Secret {

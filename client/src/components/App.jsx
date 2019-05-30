@@ -35,11 +35,11 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="Nav">
+          
           {/* <div className="NavClock">
           <Clock />
           </div> */}
-          <div className="menu">
+          {/* <div className="menu"> */}
                      
           <NavLink to="/" exact> <h1 className="App-title">FreeTime App</h1>  </NavLink>
           <NavLink to="/about"><h4>About</h4></NavLink>
@@ -49,9 +49,9 @@ export default class App extends Component {
           {api.isLoggedIn() && (
           <Link to="/" onClick={e => this.handleLogoutClick(e)}><h4>Logout</h4></Link>
           )}
-          </div>
+          {/* </div> */}
 
-          </div>
+          
         </header>
         <Switch>
           <Route

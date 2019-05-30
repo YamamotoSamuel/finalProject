@@ -66,7 +66,7 @@ export default class Profile extends Component {
         <div>
         <h1>{this.state.user.name}'s profile page</h1>
         <h2>Username: {this.state.user.username}</h2>
-        <h2>Private Activity List</h2>
+        <h2>Private Activity List:</h2>
         </div>
         <div className="Private-Tasks">
         {this.showTasks()}

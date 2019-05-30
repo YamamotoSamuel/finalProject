@@ -50,12 +50,16 @@ body {
 
   .App-header {
     background-color: $primary;
-    padding: 20px;
+    // padding: 20px;
     color: white;
-    height: 10vh;
+    height: 9vh;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size:x-large;
 
     a {
-      color: white;
+      color: black;
       padding: 0 5px;
       text-decoration: none;
     }
@@ -99,7 +103,7 @@ body {
   padding-top: 5%;
   padding-left: 10%;
   padding-right: 10%;
-  padding-bottom: 70px;
+  padding-bottom: 125px;
   background: url(/images/clock-background.jpeg) no-repeat center center fixed;
   background-size: cover;
   // background-color: red;
@@ -184,7 +188,7 @@ body {
     justify-content: center;
     padding: 1%;
     flex-direction: column;
-    background-color: rgba(128,128,128,.9);
+    background-color: rgba(128,128,128,.8);
 
     button{
     width:100px;
@@ -206,9 +210,9 @@ body {
     list-style-type: none;
   }
 
-  a.active{
-    margin-top: 28px;
-  }
+  // a.active{
+  //   margin-top: 28px;
+  // }
 // --------------------
 // Style for Secret component
 .Secret {
@@ -286,6 +290,9 @@ body {
   margin:5em;
   // background: url(/images/whattodo.jpeg) no-repeat center center fixed;
   // background-size: cover;
+  img{
+    padding-right:10px;
+  }
 }
 .About-text {
   font-size: x-large;
@@ -323,7 +330,6 @@ p {
   height:50px;
   width:50px;
 }
-
 
 .clock {
   height: $size;

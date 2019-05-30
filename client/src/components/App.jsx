@@ -36,9 +36,9 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className="Nav">
-          <div className="NavClock">
+          {/* <div className="NavClock">
           <Clock />
-          </div>
+          </div> */}
           <div className="menu">
                      
           <NavLink to="/" exact> <h1 className="App-title">FreeTime App</h1>  </NavLink>

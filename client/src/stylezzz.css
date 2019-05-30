@@ -1,12 +1,12 @@
 .menu{
-  position: absolute;
+  /* position: absolute; */
   top: 0; 
   right:0;
-  bottom:0;
+  /* bottom:0; */
   left:0;
-  display: block;
-  margin: auto;
-  height: fit-content;
+  /* display: block; */
+  /* margin: auto; */
+  /* height: fit-content; */
   font-size: xx-large;
   display: flex;
   justify-content: space-evenly;
@@ -16,9 +16,9 @@
   display: inline;
 }
 
-.App-header{
+/* .App-header{
   position: relative;
-}
+} */
 
 .About img{
   height:300px;

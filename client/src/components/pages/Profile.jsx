@@ -8,7 +8,8 @@ export default class Profile extends Component {
 
   state = {
     tasks: [],
-    user: this.props.user
+    user: {},
+    
   };
 
   deleteTask = (id, i) => {

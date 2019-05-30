@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import api from "../api";
 import Clock from './pages/Clock'
-import { throws } from "assert";
 
 export default class App extends Component {
   constructor(props) {
@@ -33,19 +31,15 @@ export default class App extends Component {
     console.log('heyyyyy',this.state, task)
   }
 
-
-
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <div className="Nav">
           <div className="NavClock">
           <Clock />
           </div>
-          <div class="menu">
+          <div className="menu">
                      
           <NavLink to="/" exact> <h1 className="App-title">FreeTime App</h1>  </NavLink>
           <NavLink to="/about"><h4>About</h4></NavLink>

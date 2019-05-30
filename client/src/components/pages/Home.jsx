@@ -24,8 +24,6 @@ export default class Home extends Component {
       .then(theTask => {
         console.log("the task is", theTask);
         this.setState({
-          // task: [{theTask.activity},{theTask.type},{theTask.particpants}]
-          //task: [theTask.data.activity,theTask.data.type,theTask.data.participants]
           task: theTask.data
         });
       });

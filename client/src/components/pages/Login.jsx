@@ -23,7 +23,7 @@ export default class Login extends Component {
     api.login(this.state.username, this.state.password)
       .then(result => {
         console.log('SUCCESS!')
-        this.props.history.push("/") // Redirect to the home page
+        this.props.history.push("/")
       })
       .catch(err => this.setState({ message: err.toString() }))
   }

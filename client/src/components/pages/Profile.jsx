@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import ShowTasks from './ShowTasks'
 import axios from 'axios';
 import api from '../../api'
 import { baseURL } from '../../api'
+axios.defaults.withCredentials= true;
 
 export default class Profile extends Component {
 
@@ -12,8 +12,7 @@ export default class Profile extends Component {
   };
 
   deleteTask = (id, i) => {
-    console.log(id); //The id in the database
-    //Task.deleteById(id)
+    console.log(id);
     axios
       .post(`${baseURL}/task/deleteTaskPlease`, { id: id })
       .then(responseFromServer => {
@@ -43,14 +42,11 @@ export default class Profile extends Component {
     });
   }
 
-  // showTasks = () => this.state.tasks.map(task=> <li>{task.activity}</li>)
-  
-
   showTasks = () => {
     return this.state.tasks.map((task, i) => {
       return (
         <li>
-          <h4>{task.activity}</h4>
+          <h4>{task.activity} - {task.type}</h4>
           {this.props.user? (
             <button onClick={() => this.deleteTask(task._id, i)}>
               Delete
@@ -62,8 +58,6 @@ export default class Profile extends Component {
       );
     });
   };
-
-
 
   render() {
     return (

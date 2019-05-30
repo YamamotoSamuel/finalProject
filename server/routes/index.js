@@ -59,11 +59,4 @@ router.post('/task/deleteTaskPlease', (req,res,next)=>{
 })
 
 
-// router.get('/secret', isLoggedIn, (req, res, next) => {
-//   res.json({
-//     secret: 42,
-//     user: req.user
-//   });
-// });
-
 module.exports = router;

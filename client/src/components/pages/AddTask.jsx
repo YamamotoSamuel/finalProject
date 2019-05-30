@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import api from '../../api'
 import {baseURL} from '../../api'
 
 import axios from 'axios';
@@ -9,7 +8,7 @@ export default class AddTask extends Component {
     super(props)
     this.state = {
       activity:"",
-      type:[], ////////////////////////////////////////changed "" to []
+      type:[],
       participants:""
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -35,7 +34,7 @@ export default class AddTask extends Component {
         console.log('SUCCESS!', dataFromServer)
         this.setState({
           activity: dataFromServer.data.task,
-          type: [], ////////////////////////////////////////changed "" to []
+          type: [],
           participants: "",
           message: `Your task '${this.state.activity}' has been created`,
           tasks:[]
@@ -48,8 +47,8 @@ export default class AddTask extends Component {
 
     handleMyTask(e) {
       e.preventDefault()
-  
-      console.log(this.state.activity, this.state.participants)
+      
+      console.log(1111,this.state.activity, this.state.participants)
       let data = {
         activity: this.state.activity,
         type: this.state.type,
@@ -57,16 +56,7 @@ export default class AddTask extends Component {
       }
       axios.post(`${baseURL}/saveMyTask`, data).then(dataFromServer=>{
         console.log(dataFromServer)
-        //api.addTask(dataFromServer)
-        //.then(result => {
           console.log('SUCCESS!', dataFromServer)
-          // this.setState({
-          //   activity: dataFromServer.data.task,
-          //   type: [], ////////////////////////////////////////changed "" to []
-          //   participants: "",
-          //   message: `Your task '${this.state.activity}' has been created`,
-          //   tasks:[]
-          // })
           this.props.onShowUpdate();
       
       }).catch(err => this.setState({ message: err.toString() }))
@@ -82,7 +72,7 @@ export default class AddTask extends Component {
                                    value={this.state.activity}
                                    name="activity"
                                    onChange={this.handleInputChange} /> <br />
-              type:         <input type="text" ///////////////////////////////////<---------- UNSURE
+              type:         <input type="text"
                                    name="type"
                                    onChange={this.handleInputChange} /> <br />
               participants: <input type="number" 

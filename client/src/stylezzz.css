@@ -19,3 +19,8 @@
 .App-header{
   position: relative;
 }
+
+.About img{
+  height:300px;
+  float: left;
+}

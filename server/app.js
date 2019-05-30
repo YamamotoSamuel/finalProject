@@ -21,13 +21,35 @@ const app = express()
 app.use(nocache())
 
 // Set "Access-Control-Allow-Origin" header
+// app.use(cors({
+//   origin: (origin, cb) => {
+//     cb(null, origin && origin.startsWith('http://localhost:'))
+//   },
+//   optionsSuccessStatus: 200,
+//   credentials: true
+// }))
+
 app.use(cors({
-  origin: (origin, cb) => {
-    cb(null, origin && origin.startsWith('http://localhost:'))
+  origin: function(origin, callback){
+    return callback(null, true);
   },
   optionsSuccessStatus: 200,
   credentials: true
-}))
+}));
+
+
+
+// // CORS
+// app.use(function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+//   if (req.method === 'OPTIONS') {
+//       return res.send(204);
+//   }
+//   next();
+// });
+
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))

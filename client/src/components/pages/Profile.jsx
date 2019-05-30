@@ -47,14 +47,14 @@ export default class Profile extends Component {
     return this.state.tasks.map((task, i) => {
       return (
         <li>
-          <h4>{task.activity} - {task.type}</h4>
+          <span><b>{task.activity} - {task.type} </b></span>
           {this.props.user? (
             <button onClick={() => this.deleteTask(task._id, i)}>
               Delete
             </button>
           ) : (
             ""
-          )}
+          )}<br/><br/>
         </li>
       );
     });
@@ -66,6 +66,7 @@ export default class Profile extends Component {
         <div>
         <h1>{this.state.user.name}'s profile page</h1>
         <h2>Username: {this.state.user.username}</h2>
+        <h2>Private Activity List</h2>
         </div>
         <div className="Private-Tasks">
         {this.showTasks()}

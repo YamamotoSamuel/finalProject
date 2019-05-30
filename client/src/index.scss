@@ -174,9 +174,30 @@ body {
 }
 
   .Private-Tasks{
-    
-    
+    border: solid 5px;
+    border-radius: 20px;
+    border-color: rgb(175, 1, 1);
+    width: 30vw;
+    display: inline-flex;
+    justify-content: center;
+    padding: 1%;
+    flex-direction: column;
+    background-color: rgba(128,128,128,.9);
+
+    button{
+    width:100px;
+    border-radius: 20px;
+    height:20px;
+    background-color: orange;
+    color:black;
+    font-style: bold;
+    }
   }
+
+  span{
+    font-size:large;
+  }
+
 
 
   li{

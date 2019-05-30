@@ -162,6 +162,7 @@ body {
     height:30px;
     background-color: orange;
     color:black;
+    font-weight: bold;
   }
   
   .community-tasks{
@@ -190,7 +191,7 @@ body {
     height:20px;
     background-color: orange;
     color:black;
-    font-style: bold;
+    font-weight: bold;
     }
   }
 
@@ -271,6 +272,15 @@ body {
   display: flex;
   align-self: center;
 }
+
+.Login button{
+  font-weight:bold;
+}
+
+.Signup button{
+  font-weight:bold;
+}
+
 .About{
   margin:5em;
   // background: url(/images/whattodo.jpeg) no-repeat center center fixed;

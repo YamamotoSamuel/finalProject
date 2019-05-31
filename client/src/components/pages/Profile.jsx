@@ -48,7 +48,7 @@ export default class Profile extends Component {
       return (
         <li>
           <span><b>{task.activity} - {task.type} </b></span>
-          {this.props.user? (
+          {this.state.user? (
             <button onClick={() => this.deleteTask(task._id, i)}>
               Delete
             </button>
